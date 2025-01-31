@@ -2,12 +2,12 @@
 const gameArea = document.getElementById("game-area")
 const player = document.querySelector(".player")
 
-const gameArea2 = document.getElementById("gameArea")
+const enemybox = document.getElementById("gameArea")
 const maxPosition = gameArea.offsetWidth - player.offsetWidth;
 
 let position = maxPosition/2;
 const playerSpeed = 5;  
-
+let enemies = [];
  
 const keys = {
     ArrowLeft: false,
@@ -72,6 +72,7 @@ function createEnemies(rows, Maxcolumns) {
       const enemy = document.createElement("div");
       enemy.classList.add("enemy");
       gameArea.appendChild(enemy);
+      enemies.push(enemy);
     }
   }
   
@@ -124,11 +125,42 @@ function animateBullet(bullet) {
   move();
 }
 
+
+ 
+
+let enemyX = 0;  
+let enemyY = 0; 
+let enemyDirection = 1;  
+const enemySpeed = 2;  
+const enemyDropDistance = 10; 
+
+function moveEnemy() {
+  let enemyRect = enemybox.getBoundingClientRect();
+  let gameRect = gameArea.getBoundingClientRect();
+
+ 
+  enemyX += enemySpeed * enemyDirection;
+
+  if (enemyRect.right >= gameRect.right && enemyDirection === 1) {
+    enemyDirection = -1;  
+    enemyY += enemyDropDistance;  
+  } else if (enemyRect.left <= gameRect.left && enemyDirection === -1) {
+    enemyDirection = 1;  
+    enemyY += enemyDropDistance;  
+  }
+   
+  enemybox.style.transform = `translate(${enemyX}px, ${enemyY}px)`;
+
+ 
+}
+ 
+ 
+ 
 function gameLoop() {
   updatePlayerPosition();
+  moveEnemy()
   requestAnimationFrame(gameLoop);
 }
-
 // Start the game loop
 gameLoop();
 
@@ -138,3 +170,4 @@ document.addEventListener("keydown", (event) => {
   }
 });
 createEnemies(3,6)
+

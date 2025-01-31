@@ -17,33 +17,39 @@
         overflow: hidden;
         margin: 0 auto;
         border: 2px solid white;
-        }
+         }
 
         .player {
+         
         position: absolute;
         width: 50px;
         height: 51px;
-        background-color: lime;
-        bottom: 10px; /* Start near the bottom */
-          /* Center horizontally */
+       
+        bottom: 10px;  
+          
         border-radius: 10px;
-        
+        background-image: url("player.png"); 
+        background-size: cover;
+        background-position: center;
     }
 
     #gameArea {
   display: grid;
-  gap: 30px; /* Spacing between enemies */
-  background-color: black;
-  padding: 20px;
-  width: fit-content; /* Adjusts to fit the grid size */
-  margin: auto; /* Centers the grid on the page */
+  gap: 30px; 
+  border-color: antiquewhite;
+  
+   
+  width: fit-content;  
+  margin: auto; 
 }
 
 .enemy {
+  background-image: url("enemy.png"); 
+        background-size: cover;
+  background-position: center;
   width: 50px;
   height: 50px;
-  background-color: red;
-  border: 2px solid white;
+ 
   transition: transform 0.2s ease-in-out;
 }
     /* Bullet styling */
