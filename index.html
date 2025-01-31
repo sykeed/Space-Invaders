@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <style>
+        #game-area {
+        
+        position: relative;
+        width: 600px;
+        height: 800px;
+        background-color: black;
+        overflow: hidden;
+        margin: 0 auto;
+        border: 2px solid white;
+        }
+
+        .player {
+        position: absolute;
+        width: 50px;
+        height: 51px;
+        background-color: lime;
+        bottom: 10px; /* Start near the bottom */
+          /* Center horizontally */
+        border-radius: 10px;
+        
+    }
+
+    #gameArea {
+  display: grid;
+  gap: 30px; /* Spacing between enemies */
+  background-color: black;
+  padding: 20px;
+  width: fit-content; /* Adjusts to fit the grid size */
+  margin: auto; /* Centers the grid on the page */
+}
+
+.enemy {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border: 2px solid white;
+  transition: transform 0.2s ease-in-out;
+}
+    /* Bullet styling */
+    .bullet {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background-color: yellow;
+      border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div id="game-area">
+        <div id="gameArea"></div>
+        <div class="player"></div>
+
+    </div>
+
+    <script src="space.js"></script>
+
+</body>
+</html>
+ 
+ 
